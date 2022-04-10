@@ -71,7 +71,7 @@ namespace XRL.World.Effects
 				string verb = "are";
 				string text = Text;
 				string terminalPunctuation = "!";
-				DidX("are", Text, "!");
+				DidX(verb, text, terminalPunctuation);
 				if (!Object.IsPlayer() && Visible())
 				{
 					Object.ParticleText(Effect.ConsequentialColor(null, Object) + "*" + Text + "*");

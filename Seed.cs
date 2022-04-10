@@ -362,6 +362,7 @@ namespace XRL.World.Parts
                 {
                     GetPuddle().Empty();
 					GetPuddle().ParentObject.Destroy();
+                    return;
                 }
                 else
                 {
@@ -444,7 +445,6 @@ namespace XRL.World.Parts
         public override bool HandleEvent(GetShortDescriptionEvent E){
 
             if (this.stage > 0){
-                string debug = "";
                 if(Scanning.HasScanningFor(XRLCore.Core.Game.Player.Body,Scanning.Scan.Bio)){
                     int drams = 0;
                     if(GetPuddle() != null){

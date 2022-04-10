@@ -125,14 +125,14 @@ namespace XRL.Liquids
 			base.RenderSmearPrimary(Liquid, eRender,obj);
 		}
 
-		public override void ObjectEnteredCell(LiquidVolume Liquid, XRL.World.GameObject GO)
+		public override void ObjectEnteredCell(LiquidVolume Liquid, ObjectEnteredCellEvent E)
 		{
-			if (Liquid.MaxVolume == -1 && GO.PhaseAndFlightMatches(Liquid.ParentObject) && GO.GetIntProperty("Slimewalking") <= 0 && GO.HasPart("Body"))
+			if (Liquid.MaxVolume == -1 && E.Object.PhaseAndFlightMatches(Liquid.ParentObject) && E.Object.GetIntProperty("Slimewalking") <= 0 && E.Object.HasPart("Body"))
 			{
 				int difficulty = 10 + (int)((double)(Liquid.ComponentLiquids[ID] * 5) / 1000.0);
-				if (!GO.MakeSave("Strength,Agility", difficulty, null, null, "Furling Agent Restraint"))
+				if (!E.Object.MakeSave("Strength,Agility", difficulty, null, null, "Furling Agent Restraint"))
 				{
-					GO.ApplyEffect(new cloneStuck(12, Liquid.ComponentLiquids[ID] / 100, null));
+					E.Object.ApplyEffect(new cloneStuck(12, Liquid.ComponentLiquids[ID] / 100, null));
 				}
 			}
 		}

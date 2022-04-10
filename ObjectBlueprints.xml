@@ -1,263 +1,209 @@
 <objects>
-
-  <object Name="Plant" Load="Merge">
-    <part Name="acegiak_SeedDropper"></part>
-  </object>
-
-  <object Name="MutatedPlant" Load="Merge">
-    <part Name="acegiak_SeedDropper" Chance="10"></part>
-  </object>
-
-  <object Name="Fungus" Load="Merge">
-    <part Name="acegiak_SeedDropper" Chance="10"></part>
-  </object>
-
-
-  <object Name="Starapple" Load="Merge">
-    <part Name="Corpse" CorpseChance="100" CorpseBlueprint="Starapple Seed" BodyDrop="false" InventoryDrop="true" />
-  </object>
-
-
-  <object Name="Dreadroot" Load="Merge">
-    <part Name="acegiak_Seed" Result="Watervine" ResultName="Watervine" Chance="0"></part>
-  </object>
-
-  <object Name="Dreadroot Tuber" Load="Merge">
-        <part Name="acegiak_Seed" Result="Dreadroot" ResultName="dreadroot"></part>
-  </object>
-
-  <object Name="Starapple Tree" Load="Merge">
-      <part Name="Harvestable" RegenTime="500"></part>
-  </object>
-
-  <object Name="Witchwood Tree" Load="Merge">
-      <part Name="Harvestable" RegenTime="500"></part>
-  </object>
-
-  <object Name="Seed"  Inherits="Item">
-    <part Name="Physics" Weight="0" Category="Seeds" Takeable="true" Solid="false"></part>
-    <part Name="Render" DisplayName="seed" Tile="Creatures/sw_sowerseed.bmp" RenderString="." ColorString="&amp;K" DetailColor="r" Occluding="false"></part>
-    <part Name="Description" Short="The hope of new life."></part>
-    <part Name="acegiak_Seed" Result="Watervine" ResultName="Watervine"></part>
-    <part Name="Stacker" />
-    <tag Name="ForceSmartUse" />
-    <part Name="Commerce" Value="0.25"/>
-  </object>
-
-
-
-  <object Name="Lead Slug" Load="Merge">
-    <part Name="acegiak_Seed" Result="Slug Tree" ResultName="slug"></part>
-  </object>
-
-  <object Name="Slug Tree" Inherits="Plant">
-    <part Name="Render" DisplayName="slug tree" ColorString="&amp;w" Tile="terrain/sw_fattree1.bmp" TileColor="&amp;w" DetailColor="y" Occluding="true"></part>
-    <part Name="Description" Short="A tangle of wiry boughs and leaden leaves, sheening in the light."></part>
-    <tag Name="HangingSupport" />
-    <tag Name="DynamicObjectsTable:DesertCanyon_FarmablePlants"></tag>
-    <part Name="acegiak_SeedDropper" Chance="10" Seed="Lead Slug"></part>
-    <part Name="Harvestable" OnSuccess="Lead Slug" OnSuccessAmount="3d8" StartRipeChance="1:5" RipeColor="&amp;R" RipeTileColor="&amp;y" RipeDetailColor="y" UnripeColor="&amp;w" UnripeTileColor="&amp;w" UnripeDetailColor="y" RegenTime="500"></part>
-  </object>
-<!-- 
-  <object Name="Seed Slugshot" Inherits="BaseMagazineRifle">
-    <part Name="Render" DisplayName="slug spitter" RenderString=")" Tile="Items/sw_wheat_stem.bmp" ColorString="&amp;w" DetailColor="y" />
-    <part Name="Physics" bUsesTwoSlots="true" />
-    <part Name="Commerce" Value="25" />
-    <part Name="MissileWeapon" Skill="Rifle" ShotsPerAction="1" AmmoPerAction="1" ShotsPerAnimation="1" WeaponAccuracy="20" />
-    <part Name="BioAmmoLoader" MaxCapacity="20" Available="20" TurnsToGenerate="5" ProjectileObject="ProjectileLeadSlug" LiquidConsumed="oil" ConsumePure="false" ConsumeAmount="1" ConsumeChance="20" />
-    <part Name="LiquidVolume" MaxVolume="4" StartVolume="4" InitialLiquid="oil-1000" />
-    <part Name="LiquidProducer" Liquid="oil" Rate="35" FillSelfOnly="true" IsTechScannable="false" WorksOnEquipper="true" WorksOnSelf="false" RequiresBodyPartCategory="Plant" />
-    <part Name="Description" Short="Compacted seed matter that's been stuffed into the leaf-mitt of a coiled tendril." />
-    <tag Name="Tier" Value="2" />
-    <tag Name="ReloadSound" Value="SplashStep1" />
-    <tag Name="MissileFireSound" Value="SeedSpit" />
-  </object> -->
-
-<object Name="Watering Can" Inherits="Tool">
-    <part Name="Render" DisplayName="&amp;cwatering can" Tile="Items/wateringcan.png" ColorString="&amp;c" DetailColor="K"></part>
-    <part Name="Description" Short="Pours liquid, a single dram at a time."></part>
-    <part Name="Metal"></part>
-    <part Name="LiquidVolume" MaxVolume="64" Volume="64" StartVolume="1d12-1" InitialLiquid="water-1000" ManualSeal="true" />
-    <part Name="acegiak_Watering"></part>
-
-  </object>
-
-  <object Name="Gourd Vine" Inherits="Plant">
-    <part Name="Render" DisplayName="gourd vine" Tile="Assets_Content_Textures_Tiles_sw_watervine1.bmp" ColorString="&amp;w" DetailColor="R"></part>
-    <part Name="Description" Short="A tanlge of wiry boughs and leaden leaves, sheening in the light."></part>
-    <tag Name="DynamicObjectsTable:Hills_FarmablePlants"></tag>
-    <part Name="Harvestable" OnSuccess="Fresh Gourd" OnSuccessAmount="1d1" StartRipeChance="1:10" RipeColor="&amp;w" RipeTileColor="&amp;w" RipeDetailColor="R" UnripeColor="&amp;w" UnripeTileColor="&amp;w" UnripeDetailColor="y" RegenTime="1000"></part>
-  </object>
-
-  <object Name="Gourd" Load="Merge">
-    <part Name="Render" DisplayName="&amp;Wgo&amp;Ru&amp;Wrd" ColorString="&amp;W" DetailColor="R" Tile="Items/sw_canteen.png"></part>
-    <part Name="Description" Short="Dried and hollowed out. Nature's canteen."></part>
-    <part Name="LiquidVolume" MaxVolume="32" Volume="32" StartVolume="1d3-1" InitialLiquid="water-1000" ManualSeal="true" />
-    <intproperty Name="Inorganic" Value="0" />
-    <part Name="Stacker" />
-
-  </object>
-
-  <object Name="Fresh Gourd" Inherits="Snack">
-    <part Name="Render" DisplayName="&amp;Gfresh &amp;wgo&amp;Gu&amp;wrd" ColorString="&amp;w" DetailColor="G" Tile="Items/sw_canteen.png"></part>
-    <part Name="Commerce" Value="0.1"></part>
-    <part Name="Food" Satiation="Snack" Thirst="1500"></part>
-    <part Name="Description" Short="A fresh green gourd."></part>
-    <part Name="Physics" Weight="1"></part>
-    <part Name="PreservableItem" Result="Gourd" Number="1"></part>
-    <part Name="PreparedCookingIngredient" type="selfPoison" charges="1"></part>
-    <tag Name="ChooseToPreserve"></tag>
-    <part Name="Stacker" />
-  </object>
-
-
-  <object Name="Moxy" Inherits="Plant">
-    <part Name="Render" DisplayName="&amp;wmoxy vine" Tile="creatures/sw_weeds1.bmp" ColorString="&amp;w" DetailColor="R"></part>
-    <part Name="Description" Short="Broad, papery leaves glutton themselves on every dribble of moisture the wastes into their soil."></part>
-    <tag Name="DynamicObjectsTable:DesertCanyon_FarmablePlants"></tag>
-    <tag Name="DynamicObjectsTable:Hills_FarmablePlants"></tag>
-    <part Name="Harvestable" OnSuccess="Moxy Leaves" OnSuccessAmount="1d3" StartRipeChance="1:10" RipeColor="&amp;w" RipeTileColor="&amp;w" RipeDetailColor="G" UnripeColor="&amp;w" UnripeTileColor="&amp;w" UnripeDetailColor="g" RegenTime="1000"></part>
-  </object>
-
-
-  <object Name="Moxy Leaves" Inherits="Snack">
-    <part Name="Render" DisplayName="&amp;gmoxy leaves" ColorString="&amp;w" DetailColor="G" Tile="Items/sw_lah_petals.bmp"></part>
-    <part Name="Commerce" Value="10"></part>
-    <part Name="Food" Satiation="Snack" Thirst="200" Gross="true" IllOnEat="true"></part>
-    <part Name="Description" Short="Heavy green moxy leaves, dense with confidence."></part>
-    <part Name="Physics" Weight="1"></part>
-    <part Name="PreservableItem" Result="Dried Moxy" Number="3" ></part>
-    <part Name="PreparedCookingIngredient" type="willpower" charges="2"></part>
-    <tag Name="ChooseToPreserve"></tag>
-    <tag Name="FermentTo" Value="beer"/>
-    <part Name="Stacker" />
-  </object>
-
-  <object Name="Dried Moxy" Inherits="Preservable">
-    <part Name="Render" DisplayName="&amp;wmoxy pearl" RenderString="%" ColorString="&amp;y" TileColor="&amp;y" DetailColor="y" RenderLayer="5" Tile="Items/sw_smallstone.bmp"></part>
-    <part Name="Commerce" Value="6"></part>
-    <part Name="Description" Short="Rich moxy leaves were rolled and dried into pearls waiting to release their credit under ignition."></part>
-    <part Name="PreparedCookingIngredient" type="regenLowtier" charges="1"></part>
-    <tag Name="Plant"></tag>
-    <part Name="Food" Satiation="Snack" Thirst="200" Gross="true" IllOnEat="true"></part>
-    <part Name="acegiak_Smoked" Effect="Meditating" Duration="2d100"></part>
-    <tag Name="DynamicObjectsTable:Saltmarsh_Ingredients"></tag>
-  </object>
-
-
-    <object Name="Starapple Seed"  Inherits="Seed">
-        <part Name="Physics" Category="Seeds" Weight="0" Takeable="true" Solid="false"></part>
-        <part Name="Render" DisplayName="starapple seed" Tile="Items/sw_smallstone.bmp" RenderString="." ColorString="&amp;K" DetailColor="r" Occluding="false"></part>
-        <part Name="Description" Short="One tiny point from a glistening star."></part>
-        <part Name="acegiak_Seed" Result="Starapple Tree" ResultName="Starapple"></part>
-
-    </object>
-
-    <object Name="Witchwood Seed"  Inherits="Seed">
-        <part Name="Physics" Weight="0" Category="Seeds" Takeable="true" Solid="false"></part>
-        <part Name="Render" DisplayName="witchwood seed" Tile="Items/sw_smallstone.bmp" RenderString="." ColorString="&amp;K" DetailColor="W" Occluding="false"></part>
-        <part Name="Description" Short="A grain of madness, ready to bloom."></part>
-        <part Name="acegiak_Seed" Result="Witchwood Tree" ResultName="witchwood"></part>
-
-    </object>
-
-    
-  <object Name="Arsplice Seed" Load="Merge">
-        <part Name="acegiak_Seed" Result="wishing tree" ResultName="arsplice"></part>
-  </object>
-
-
-  <object Name="wishing tree" Inherits="Plant">
-    <part Name="Render" DisplayName="wishing tree" ColorString="&amp;w" Tile="terrain/sw_fattree2.bmp" TileColor="&amp;w" DetailColor="g" Occluding="true"></part>
-    <part Name="Description" Short="As the wind pulls against it, the limbs of the tree sob quietly to themselves, grieving a being they might have been."></part>
-    <tag Name="HangingSupport" />
-    <part Name="acegiak_SeedDropper" Chance="10" Seed="Arsplice Seed"></part>
-    <part Name="Harvestable" OnSuccess="BeingWishes" OnSuccessAmount="1" StartRipeChance="1:10" RipeColor="&amp;r" RipeTileColor="&amp;r" RipeDetailColor="g" UnripeColor="&amp;w" UnripeTileColor="&amp;w" UnripeDetailColor="g" RegenTime="1000"></part>
-  </object>
-  <object Name="BeingWishes" Inherits="Corpse">
-    <part Name="Render" DisplayName="&amp;rwishes of being" ColorString="&amp;r" TileColor="&amp;r" DetailColor="w" Tile="Items/sw_rawmeat1.bmp" />
-    <part Name="Description" Short="Fleshy bits of might-have-been fingers, little slivers of possibly ears, a curl of a lip never smiling.~J211" />
-    <part Name="Food" IllOnEat="true" Message="The meat is tough but the it warms the hope within you." />
-    <part Name="Physics" Weight="3" />
-    <part Name="Commerce" Value="2" />
-    <xtagGrammar iArticle="some" />
-    <tag Name="Meat" />
-    <part Name="PreservableItem" Result="Canned Have-It-All" Number="1"></part>
-    
-  </object>
-
-  <object Name="Rubber Tree Seed" Load="Merge">
-        <part Name="acegiak_Seed" Result="Rubber Tree" ResultName="Rubber Tree"></part>
-  </object>
-
-  <object Name="Sowers_Seed" Load="Merge">
-        <part Name="acegiak_Seed" Result="Feral Lah" ResultName="Feral Lah"></part>
-  </object>
-
-  <object Name="Feral Lah" Load="Merge">
-    <part Name="acegiak_SeedDropper" Chance="4" Seed="Sowers_Seed"></part>
-  </object>
-
-  <object Name="Growth Agent Phial" Inherits="Phial">
-      <part Name="Render" DisplayName="growth agent phial"></part>
-    <part Name="LiquidVolume" StartVolume="1" InitialLiquid="growthagent-1000" />
-      <part Name="TinkerItem" Bits="05" CanDisassemble="false" CanBuild="true" CanRepair="false"></part>
-  </object>
-  <object Name="Furling Agent Phial" Inherits="Phial">
-    <part Name="Render" DisplayName="furling agent phial"></part>
-    <part Name="LiquidVolume" StartVolume="1" InitialLiquid="furlingagent-1000" />
-      <part Name="TinkerItem" Bits="05" CanDisassemble="false" CanBuild="true" CanRepair="false"></part>
-  </object>
-  <object Name="Restraining Agent Phial" Inherits="Phial">
-      <part Name="Render" DisplayName="restraining agent phial"></part>
-    <part Name="LiquidVolume" StartVolume="1" InitialLiquid="restrainingagent-1000" />
-      <part Name="TinkerItem" Bits="05" CanDisassemble="false" CanBuild="true" CanRepair="false"></part>
-  </object>
-  <object Name="Soothing Agent Phial" Inherits="Phial">
-      <part Name="Render" DisplayName="soothing agent phial"></part>
-    <part Name="LiquidVolume" StartVolume="1" InitialLiquid="soothingagent-1000" />
-    <part Name="TinkerItem" Bits="05" CanDisassemble="false" CanBuild="true" CanRepair="false"></part>
-  </object>
-  
-  <object Name="FurledPlant" Inherits="Grenade">
-    <part Name="Physics" Weight="0" Takeable="true" Solid="false" Category="Seeds"></part>
-    <part Name="Render" DisplayName="seed"  Tile="Items/sw_grenade.bmp" RenderString="." ColorString="&amp;K" DetailColor="r" Occluding="false"></part>
-    <part Name="Description" Short="A tightly furled bundle of sprigs and leaves."></part>
-    <part Name="DeploymentGrenade" Blueprint="Starapple" Radius="0"  ActivationVerb="detonate" BlockedBySolid="true" BlockedByNonEmpty="false" DustPuff="false" DustPuffEach="false" />
-    <part Name="Stacker" />
-  </object>
-
-  <object Name="Fermenting Barrel" Inherits="Chest">
-    <part Name="Render" DisplayName="barrel"  Tile="Items/barrel.png" RenderString="." ColorString="&amp;w" DetailColor="W" Occluding="false"></part>
-    <part Name="LiquidVolume" MaxVolume="1000" Volume="1000" StartVolume="3d12" InitialLiquid="wine-1000" ManualSeal="true" />
-    <part Name="Description" Short="A brass bound barrel seeded with fermenting promises."></part>
-    <tag Name="acegiak_Buildable" Value="Scrap Wood:5;Scrap Metal:1"/>
-    <part Name="acegiak_Fermenter"/>
-  </object>
-
-  <object Name="Yuckwheat Stem" Load="Merge">
-    <tag Name="FermentTo" Value="beer"/>
-  </object>
-  <object Name="Starapple" Load="Merge">
-    <tag Name="FermentTo" Value="cider"/>
-  </object>
-  <object Name="Spine Fruit" Load="Merge">
-    <tag Name="FermentTo" Value="wine"/>
-  </object>
-  <object Name="HoneyPool" Load="Merge">
-    <tag Name="FermentTo" Value="mead"/>
-  </object>
-  <object Name="BeerPool" Inherits="Water">
-    <part Name="LiquidVolume" MaxVolume="-1" Volume="10" StartVolume="10d10" InitialLiquid="beer-1000"></part>
-  </object>
-  <object Name="MeadPool" Inherits="Water">
-    <part Name="LiquidVolume" MaxVolume="-1" Volume="10" StartVolume="10d10" InitialLiquid="mead-1000"></part>
-  </object>
-  <!-- <object Name="GrapeJuicePool" Inherits="Water">
-    <part Name="LiquidVolume" MaxVolume="-1" Volume="10" StartVolume="10d10" InitialLiquid="grapejuice-1000"></part>
+	<object Name="Plant" Load="Merge">
+		<part Name="acegiak_SeedDropper" />
+	</object>
+	<object Name="MutatedPlant" Load="Merge">
+		<part Name="acegiak_SeedDropper" Chance="10" />
+	</object>
+	<object Name="Fungus" Load="Merge">
+		<part Name="acegiak_SeedDropper" Chance="10" />
+	</object>
+	<object Name="Brinestalk" Load="Merge">
+		<part Name="acegiak_SeedDropper" Chance="5" />
+	</object>
+	<object Name="Starapple" Load="Merge">
+		<part Name="Corpse" CorpseChance="100" CorpseBlueprint="Starapple Seed" BodyDrop="false" InventoryDrop="true" />
+	</object>
+	<object Name="Dreadroot" Load="Merge">
+		<part Name="acegiak_Seed" Result="Watervine" ResultName="Watervine" Chance="0" />
+	</object>
+	<object Name="Dreadroot Tuber" Load="Merge">
+		<part Name="acegiak_Seed" Result="Dreadroot" ResultName="dreadroot" />
+	</object>
+	<object Name="Starapple Tree" Load="Merge">
+		<part Name="Harvestable" RegenTime="500" />
+	</object>
+	<object Name="Witchwood Tree" Load="Merge">
+		<part Name="Harvestable" RegenTime="500" />
+	</object>
+	<object Name="Seed"  Inherits="Item">
+		<part Name="Physics" Weight="0" Category="Seeds" Takeable="true" Solid="false" />
+		<part Name="Render" DisplayName="seed" Tile="Creatures/sw_sowerseed.bmp" RenderString="." ColorString="&amp;K" DetailColor="r" Occluding="false" />
+		<part Name="Description" Short="The hope of new life." />
+		<part Name="acegiak_Seed" Result="Watervine" ResultName="Watervine" />
+		<part Name="Stacker" />
+		<tag Name="ForceSmartUse" />
+		<part Name="Commerce" Value="0.25"/>
+	</object>
+	<object Name="Lead Slug" Load="Merge">
+		<part Name="acegiak_Seed" Result="Slug Tree" ResultName="slug" />
+	</object>
+	<object Name="Slug Tree" Inherits="Plant">
+		<part Name="Render" DisplayName="slug tree" ColorString="&amp;w" Tile="terrain/sw_fattree1.bmp" TileColor="&amp;w" DetailColor="y" Occluding="true" />
+		<part Name="Description" Short="A tangle of wiry boughs and leaden leaves, sheening in the light." />
+		<tag Name="HangingSupport" />
+		<tag Name="DynamicObjectsTable:DesertCanyon_FarmablePlants" />
+		<part Name="acegiak_SeedDropper" Chance="10" Seed="Lead Slug" />
+		<part Name="Harvestable" OnSuccess="Lead Slug" OnSuccessAmount="3d8" StartRipeChance="1:5" RipeColor="&amp;R" RipeTileColor="&amp;y" RipeDetailColor="y" UnripeColor="&amp;w" UnripeTileColor="&amp;w" UnripeDetailColor="y" RegenTime="500" />
+	</object>
+	<!-- 
+  <object Name="Seed Slugshot" Inherits="BaseMagazineRifle"><part Name="Render" DisplayName="slug spitter" RenderString=")" Tile="Items/sw_wheat_stem.bmp" ColorString="&amp;w" DetailColor="y" /><part Name="Physics" bUsesTwoSlots="true" /><part Name="Commerce" Value="25" /><part Name="MissileWeapon" Skill="Rifle" ShotsPerAction="1" AmmoPerAction="1" ShotsPerAnimation="1" WeaponAccuracy="20" /><part Name="BioAmmoLoader" MaxCapacity="20" Available="20" TurnsToGenerate="5" ProjectileObject="ProjectileLeadSlug" LiquidConsumed="oil" ConsumePure="false" ConsumeAmount="1" ConsumeChance="20" /><part Name="LiquidVolume" MaxVolume="4" StartVolume="4" InitialLiquid="oil-1000" /><part Name="LiquidProducer" Liquid="oil" Rate="35" FillSelfOnly="true" IsTechScannable="false" WorksOnEquipper="true" WorksOnSelf="false" RequiresBodyPartCategory="Plant" /><part Name="Description" Short="Compacted seed matter that's been stuffed into the leaf-mitt of a coiled tendril." /><tag Name="Tier" Value="2" /><tag Name="ReloadSound" Value="SplashStep1" /><tag Name="MissileFireSound" Value="SeedSpit" /></object> -->
+	<object Name="Watering Can" Inherits="Tool">
+		<part Name="Render" DisplayName="&amp;cwatering can" Tile="Items/wateringcan.png" ColorString="&amp;c" DetailColor="K" />
+		<part Name="Description" Short="Pours liquid, a single dram at a time." />
+		<part Name="Metal" />
+		<part Name="LiquidVolume" MaxVolume="64" Volume="64" StartVolume="1d12-1" InitialLiquid="water-1000" ManualSeal="true" />
+		<part Name="acegiak_Watering" />
+	</object>
+	<object Name="Gourd Vine" Inherits="Plant">
+		<part Name="Render" DisplayName="gourd vine" Tile="Assets_Content_Textures_Tiles_sw_watervine1.bmp" ColorString="&amp;w" DetailColor="R" />
+		<part Name="Description" Short="A tanlge of wiry boughs and leaden leaves, sheening in the light." />
+		<tag Name="DynamicObjectsTable:Hills_FarmablePlants" />
+		<part Name="Harvestable" OnSuccess="Fresh Gourd" OnSuccessAmount="1d1" StartRipeChance="1:10" RipeColor="&amp;w" RipeTileColor="&amp;w" RipeDetailColor="R" UnripeColor="&amp;w" UnripeTileColor="&amp;w" UnripeDetailColor="y" RegenTime="1000" />
+	</object>
+	<object Name="Gourd" Load="Merge">
+		<part Name="Render" DisplayName="&amp;Wgo&amp;Ru&amp;Wrd" ColorString="&amp;W" DetailColor="R" Tile="Items/sw_canteen.png" />
+		<part Name="Description" Short="Dried and hollowed out. Nature's canteen." />
+		<part Name="LiquidVolume" MaxVolume="32" Volume="32" StartVolume="1d3-1" InitialLiquid="water-1000" ManualSeal="true" />
+		<intproperty Name="Inorganic" Value="0" />
+		<part Name="Stacker" />
+	</object>
+	<object Name="Fresh Gourd" Inherits="Snack">
+		<part Name="Render" DisplayName="&amp;Gfresh &amp;wgo&amp;Gu&amp;wrd" ColorString="&amp;w" DetailColor="G" Tile="Items/sw_canteen.png" />
+		<part Name="Commerce" Value="0.1" />
+		<part Name="Food" Satiation="Snack" Thirst="1500" />
+		<part Name="Description" Short="A fresh green gourd." />
+		<part Name="Physics" Weight="1" />
+		<part Name="PreservableItem" Result="Gourd" Number="1" />
+		<part Name="PreparedCookingIngredient" type="selfPoison" charges="1" />
+		<tag Name="ChooseToPreserve" />
+		<part Name="Stacker" />
+	</object>
+	<object Name="Moxy" Inherits="Plant">
+		<part Name="Render" DisplayName="&amp;wmoxy vine" Tile="creatures/sw_weeds1.bmp" ColorString="&amp;w" DetailColor="R" />
+		<part Name="Description" Short="Broad, papery leaves glutton themselves on every dribble of moisture the wastes into their soil." />
+		<tag Name="DynamicObjectsTable:DesertCanyon_FarmablePlants" />
+		<tag Name="DynamicObjectsTable:Hills_FarmablePlants" />
+		<part Name="Harvestable" OnSuccess="Moxy Leaves" OnSuccessAmount="1d3" StartRipeChance="1:10" RipeColor="&amp;w" RipeTileColor="&amp;w" RipeDetailColor="G" UnripeColor="&amp;w" UnripeTileColor="&amp;w" UnripeDetailColor="g" RegenTime="1000" />
+	</object>
+	<object Name="Moxy Leaves" Inherits="Snack">
+		<part Name="Render" DisplayName="&amp;gmoxy leaves" ColorString="&amp;w" DetailColor="G" Tile="Items/sw_lah_petals.bmp" />
+		<part Name="Commerce" Value="10" />
+		<part Name="Food" Satiation="Snack" Thirst="200" Gross="true" IllOnEat="true" />
+		<part Name="Description" Short="Heavy green moxy leaves, dense with confidence." />
+		<part Name="Physics" Weight="1" />
+		<part Name="PreservableItem" Result="Dried Moxy" Number="3" />
+		<part Name="PreparedCookingIngredient" type="willpower" charges="2" />
+		<tag Name="ChooseToPreserve" />
+		<tag Name="FermentTo" Value="beer"/>
+		<part Name="Stacker" />
+	</object>
+	<object Name="Dried Moxy" Inherits="Preservable">
+		<part Name="Render" DisplayName="&amp;wmoxy pearl" RenderString="%" ColorString="&amp;y" TileColor="&amp;y" DetailColor="y" RenderLayer="5" Tile="Items/sw_smallstone.bmp" />
+		<part Name="Commerce" Value="6" />
+		<part Name="Description" Short="Rich moxy leaves were rolled and dried into pearls waiting to release their credit under ignition." />
+		<part Name="PreparedCookingIngredient" type="regenLowtier" charges="1" />
+		<tag Name="Plant" />
+		<part Name="Food" Satiation="Snack" Thirst="200" Gross="true" IllOnEat="true" />
+		<part Name="acegiak_Smoked" Effect="Meditating" Duration="2d100" />
+		<tag Name="DynamicObjectsTable:Saltmarsh_Ingredients" />
+	</object>
+	<object Name="Starapple Seed"  Inherits="Seed">
+		<part Name="Physics" Category="Seeds" Weight="0" Takeable="true" Solid="false" />
+		<part Name="Render" DisplayName="starapple seed" Tile="Items/sw_smallstone.bmp" RenderString="." ColorString="&amp;K" DetailColor="r" Occluding="false" />
+		<part Name="Description" Short="One tiny point from a glistening star." />
+		<part Name="acegiak_Seed" Result="Starapple Tree" ResultName="Starapple" />
+	</object>
+	<object Name="Witchwood Seed"  Inherits="Seed">
+		<part Name="Physics" Weight="0" Category="Seeds" Takeable="true" Solid="false" />
+		<part Name="Render" DisplayName="witchwood seed" Tile="Items/sw_smallstone.bmp" RenderString="." ColorString="&amp;K" DetailColor="W" Occluding="false" />
+		<part Name="Description" Short="A grain of madness, ready to bloom." />
+		<part Name="acegiak_Seed" Result="Witchwood Tree" ResultName="witchwood" />
+	</object>
+	<object Name="Arsplice Seed" Load="Merge">
+		<part Name="acegiak_Seed" Result="wishing tree" ResultName="arsplice" />
+	</object>
+	<object Name="wishing tree" Inherits="Plant">
+		<part Name="Render" DisplayName="wishing tree" ColorString="&amp;w" Tile="terrain/sw_fattree2.bmp" TileColor="&amp;w" DetailColor="g" Occluding="true" />
+		<part Name="Description" Short="As the wind pulls against it, the limbs of the tree sob quietly to themselves, grieving a being they might have been." />
+		<tag Name="HangingSupport" />
+		<part Name="acegiak_SeedDropper" Chance="10" Seed="Arsplice Seed" />
+		<part Name="Harvestable" OnSuccess="BeingWishes" OnSuccessAmount="1" StartRipeChance="1:10" RipeColor="&amp;r" RipeTileColor="&amp;r" RipeDetailColor="g" UnripeColor="&amp;w" UnripeTileColor="&amp;w" UnripeDetailColor="g" RegenTime="1000" />
+	</object>
+	<object Name="BeingWishes" Inherits="Corpse">
+		<part Name="Render" DisplayName="&amp;rwishes of being" ColorString="&amp;r" TileColor="&amp;r" DetailColor="w" Tile="Items/sw_rawmeat1.bmp" />
+		<part Name="Description" Short="Fleshy bits of might-have-been fingers, little slivers of possibly ears, a curl of a lip never smiling.~J211" />
+		<part Name="Food" IllOnEat="true" Message="The meat is tough but the it warms the hope within you." />
+		<part Name="Physics" Weight="3" />
+		<part Name="Commerce" Value="2" />
+		<xtagGrammar iArticle="some" />
+		<tag Name="Meat" />
+		<part Name="PreservableItem" Result="Canned Have-It-All" Number="1" />
+	</object>
+	<object Name="Rubber Tree Seed" Load="Merge">
+		<part Name="acegiak_Seed" Result="Rubber Tree" ResultName="Rubber Tree" />
+	</object>
+	<object Name="Sowers_Seed" Load="Merge">
+		<part Name="acegiak_Seed" Result="Feral Lah" ResultName="Feral Lah" />
+	</object>
+	<object Name="Feral Lah" Load="Merge">
+		<part Name="acegiak_SeedDropper" Chance="4" Seed="Sowers_Seed" />
+	</object>
+	<object Name="Growth Agent Phial" Inherits="Phial">
+		<part Name="Render" DisplayName="growth agent phial" />
+		<part Name="LiquidVolume" StartVolume="1" InitialLiquid="growthagent-1000" />
+		<part Name="TinkerItem" Bits="05" CanDisassemble="false" CanBuild="true" CanRepair="false" />
+	</object>
+	<object Name="Furling Agent Phial" Inherits="Phial">
+		<part Name="Render" DisplayName="furling agent phial" />
+		<part Name="LiquidVolume" StartVolume="1" InitialLiquid="furlingagent-1000" />
+		<part Name="TinkerItem" Bits="05" CanDisassemble="false" CanBuild="true" CanRepair="false" />
+	</object>
+	<object Name="Restraining Agent Phial" Inherits="Phial">
+		<part Name="Render" DisplayName="restraining agent phial" />
+		<part Name="LiquidVolume" StartVolume="1" InitialLiquid="restrainingagent-1000" />
+		<part Name="TinkerItem" Bits="05" CanDisassemble="false" CanBuild="true" CanRepair="false" />
+	</object>
+	<object Name="Soothing Agent Phial" Inherits="Phial">
+		<part Name="Render" DisplayName="soothing agent phial" />
+		<part Name="LiquidVolume" StartVolume="1" InitialLiquid="soothingagent-1000" />
+		<part Name="TinkerItem" Bits="05" CanDisassemble="false" CanBuild="true" CanRepair="false" />
+	</object>
+	<object Name="FurledPlant" Inherits="Grenade">
+		<part Name="Physics" Weight="0" Takeable="true" Solid="false" Category="Seeds" />
+		<part Name="Render" DisplayName="seed"  Tile="Items/sw_grenade.bmp" RenderString="." ColorString="&amp;K" DetailColor="r" Occluding="false" />
+		<part Name="Description" Short="A tightly furled bundle of sprigs and leaves." />
+		<part Name="DeploymentGrenade" Blueprint="Starapple" Radius="0"  ActivationVerb="detonate" BlockedBySolid="true" BlockedByNonEmpty="false" DustPuff="false" DustPuffEach="false" />
+		<part Name="Stacker" />
+	</object>
+	<object Name="Fermenting Barrel" Inherits="Chest">
+		<part Name="Render" DisplayName="barrel"  Tile="Items/barrel.png" RenderString="." ColorString="&amp;w" DetailColor="W" Occluding="false" />
+		<part Name="LiquidVolume" MaxVolume="1000" Volume="1000" ManualSeal="true" />
+		<part Name="Description" Short="A brass bound barrel seeded with fermenting promises." />
+		<part Name="acegiak_Fermenter"/>
+	</object>
+	<object Name="Yuckwheat Stem" Load="Merge">
+		<tag Name="FermentTo" Value="beer"/>
+	</object>
+	<object Name="Starapple" Load="Merge">
+		<tag Name="FermentTo" Value="cider"/>
+	</object>
+	<object Name="Spine Fruit" Load="Merge">
+		<tag Name="FermentTo" Value="wine"/>
+	</object>
+	<object Name="HoneyPool" Load="Merge">
+		<tag Name="FermentTo" Value="mead"/>
+	</object>
+	<object Name="BeerPool" Inherits="Water">
+		<part Name="LiquidVolume" MaxVolume="-1" Volume="10" StartVolume="10d10" InitialLiquid="beer-1000" />
+	</object>
+	<object Name="MeadPool" Inherits="Water">
+		<part Name="LiquidVolume" MaxVolume="-1" Volume="10" StartVolume="10d10" InitialLiquid="mead-1000" />
+	</object>
+	<!-- <object Name="GrapeJuicePool" Inherits="Water">
+    <part Name="LiquidVolume" MaxVolume="-1" Volume="10" StartVolume="10d10" InitialLiquid="grapejuice-1000" />
   </object>
   <object Name="AppleJuicePool" Inherits="Water">
-    <part Name="LiquidVolume" MaxVolume="-1" Volume="10" StartVolume="10d10" InitialLiquid="applejuice-1000"></part>
+    <part Name="LiquidVolume" MaxVolume="-1" Volume="10" StartVolume="10d10" InitialLiquid="applejuice-1000" />
   </object> -->
-
-  </objects>
+</objects>

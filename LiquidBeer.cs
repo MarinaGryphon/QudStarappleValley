@@ -154,10 +154,6 @@ namespace XRL.Liquids
 			base.RenderSmearPrimary(Liquid, eRender, obj);
 		}
 
-		public override void ObjectEnteredCell(LiquidVolume Liquid, GameObject GO)
-		{
-		}
-
 		public override float GetValuePerDram()
 		{
 			return 3.8f;

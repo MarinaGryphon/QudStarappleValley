@@ -145,30 +145,30 @@ namespace XRL.Liquids
 			base.RenderSmearPrimary(Liquid, eRender, obj);
 		}
 
-		public override void ObjectEnteredCell(LiquidVolume Liquid, GameObject GO)
+		public override void ObjectEnteredCell(LiquidVolume Liquid, ObjectEnteredCellEvent E)
 		{
-			if (Liquid.MaxVolume != -1 || !GO.HasPart("Body") || !GO.PhaseAndFlightMatches(Liquid.ParentObject) || GO.GetIntProperty("Slimewalking") > 0 || Liquid.Volume > 1000)
+			if (Liquid.MaxVolume != -1 || !E.Object.HasPart("Body") || !E.Object.PhaseAndFlightMatches(Liquid.ParentObject) || E.Object.GetIntProperty("Slimewalking") > 0 || Liquid.Volume > 1000)
 			{
 				return;
 			}
 			int num = 10 + (int)((double)(Liquid.ComponentLiquids[ID] * 5) / 1000.0);
-			if (!GO.MakeSave("Agility,Toughness", num - GO.GetIntProperty("Stable"), null, null, "Unwanted Growth"))
+			if (!E.Object.MakeSave("Agility,Toughness", num - E.Object.GetIntProperty("Stable"), null, null, "Unwanted Growth"))
 			{
 
                 BodyPart bp = null;
 
-				GO.GetPart<Body>()._Body.ForeachPart(delegate(BodyPart BP){
+				E.Object.GetPart<Body>()._Body.ForeachPart(delegate(BodyPart BP){
                     if(BP.GetTotalMobility() > 0 && (bp == null || BP.GetTotalMobility() > bp.GetTotalMobility() )){
                         bp = BP;
                     }
                 });
 
                 if(bp != null){
-                    if (GO.IsPlayer())
+                    if (E.Object.IsPlayer())
                     {
                         MessageQueue.AddPlayerMessage("&CYour "+bp.Name+" grow"+(bp.Plural?"":"s")+" a little!");
                     }
-                    GO.pPhysics.Weight += 1;
+                    E.Object.pPhysics.Weight += 1;
                 }
 			}
 		}

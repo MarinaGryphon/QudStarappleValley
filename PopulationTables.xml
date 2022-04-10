@@ -1,0 +1,32 @@
+<populations>
+	<population Name="Utility 2" Load="Merge">
+		<object Weight="15" Number="1d1" Blueprint="Watering Can"></object>
+		<object Weight="15" Number="1d1" Blueprint="Fermenting Barrel"></object>
+	</population>
+
+	<population Name="Agriculture Phials" Density="minimum">
+		<object Weight="10" Number="1d3" Blueprint="Growth Agent Phial"></object>
+		<object Weight="10" Number="1d3" Blueprint="Restraining Agent Phial"></object>
+		<object Weight="10" Number="1d3" Blueprint="Furling Agent Phial"></object>
+		<object Weight="10" Number="1d3" Blueprint="Soothing Agent Phial"></object>
+	</population>
+
+	<population Name="Utility 3" Load="Merge">
+		<table Weight="1" Name="Agriculture Phials"></table>    
+	</population>
+	<population Name="Utility 4" Load="Merge">
+		<table Weight="1" Name="Agriculture Phials"></table>    
+	</population>
+	<population Name="Utility 5" Load="Merge">
+		<table Weight="1" Name="Agriculture Phials"></table>    
+	</population>
+	<population Name="Utility 6" Load="Merge">
+		<table Weight="1" Name="Agriculture Phials"></table>    
+	</population>
+	<population Name="Utility 7" Load="Merge">
+		<table Weight="1" Name="Agriculture Phials"></table>    
+	</population>
+	<population Name="Utility 8" Load="Merge">
+		<table Weight="1" Name="Agriculture Phials"></table>    
+	</population>
+</populations>
